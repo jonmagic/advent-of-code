@@ -14,3 +14,12 @@ data.each do |line|
 end
 
 puts "Sum of scores for puzzle 1: #{sum}"
+
+sum = 0
+data.each_slice(3).each do |group|
+  top, middle, bottom = group[0].strip.chars, group[1].strip.chars, group[2].strip.chars
+  common_items = top & middle & bottom
+  sum += score(common_items.first)
+end
+
+puts "Sum of scores for puzzle 2: #{sum}"
